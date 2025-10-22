@@ -9,6 +9,10 @@ export class Duration {
     return new Duration(value * 3600);
   }
 
+  static milliseconds(value: number): Duration {
+    return new Duration(value / 1000);
+  }
+
   static minutes(value: number): Duration {
     return new Duration(value * 60);
   }
