@@ -45,3 +45,25 @@ it("creates a duration of 1 hour via method", () => {
   // ASSERT
   expect(duration.toSeconds()).toBe(3600);
 });
+
+it("converts duration to seconds", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.seconds(5);
+
+  // ASSERT
+  expect(duration.toSeconds()).toBe(5);
+});
+
+it("converts duration into milliseconds", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.seconds(5);
+
+  // ASSERT
+  expect(duration.toMilliseconds()).toBe(5000);
+});
