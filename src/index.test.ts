@@ -1,9 +1,14 @@
-import { describe, expect, it } from "vitest";
+import { expect, it } from "vitest";
 
-import { sum } from "./index.js";
+import { Duration } from "./index.js";
 
-describe("sum", () => {
-  it("adds", () => {
-    expect(sum(1, 2)).toBe(3);
-  });
+it("creates a duration from 5 seconds via method", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.seconds(5);
+
+  // ASSERT
+  expect(duration.toSeconds()).toBe(5);
 });
