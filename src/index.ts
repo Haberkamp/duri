@@ -21,6 +21,10 @@ export class Duration {
     return new Duration(value);
   }
 
+  toHours(): number {
+    return this.secondsValue / 3600;
+  }
+
   toMilliseconds(): number {
     return this.secondsValue * 1000;
   }

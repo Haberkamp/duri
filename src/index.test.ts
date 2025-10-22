@@ -78,3 +78,14 @@ it("converts duration into minutes", () => {
   // ASSERT
   expect(duration.toMinutes()).toBe(0.083_333_333_333_333_33);
 });
+
+it("converts duration into hours", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.seconds(3600);
+
+  // ASSERT
+  expect(duration.toHours()).toBe(1);
+});
