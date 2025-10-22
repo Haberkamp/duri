@@ -2,7 +2,7 @@ import { expect, it } from "vitest";
 
 import { Duration } from "./index.js";
 
-it("creates a duration from 5 seconds via method", () => {
+it("creates a duration of 5 seconds via method", () => {
   // ARRANGE
   const subject = Duration;
 
@@ -11,4 +11,15 @@ it("creates a duration from 5 seconds via method", () => {
 
   // ASSERT
   expect(duration.toSeconds()).toBe(5);
+});
+
+it("creates a duration of 1 minute via method", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.minutes(1);
+
+  // ASSERT
+  expect(duration.toSeconds()).toBe(60);
 });
