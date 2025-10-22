@@ -25,6 +25,10 @@ export class Duration {
     return this.secondsValue * 1000;
   }
 
+  toMinutes(): number {
+    return this.secondsValue / 60;
+  }
+
   toSeconds(): number {
     return this.secondsValue;
   }

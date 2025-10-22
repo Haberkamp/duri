@@ -67,3 +67,14 @@ it("converts duration into milliseconds", () => {
   // ASSERT
   expect(duration.toMilliseconds()).toBe(5000);
 });
+
+it("converts duration into minutes", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.seconds(5);
+
+  // ASSERT
+  expect(duration.toMinutes()).toBe(0.083_333_333_333_333_33);
+});
