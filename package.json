@@ -1,0 +1,65 @@
+{
+  "name": "duri",
+  "version": "0.0.1",
+  "description": "A tiny library for working with durations.",
+  "keywords": [],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    }
+  },
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tshy",
+    "clean": "rimraf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint ./src --fix",
+    "format": "prettier . -w",
+    "format:check": "prettier . -c",
+    "attw": "attw --pack .",
+    "ci": "npm run lint && npm run typecheck && npm run test && npm run format:check && npm run attw",
+    "prepublishOnly": "npm run ci && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@eslint/js": "^9.38.0",
+    "@types/node": "^24.9.1",
+    "@vitest/coverage-v8": "^4.0.1",
+    "eslint": "^9.38.0",
+    "eslint-plugin-perfectionist": "^4.15.1",
+    "eslint-plugin-unicorn": "^61.0.2",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "tshy": "^3.0.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vitest": "^4.0.1"
+  },
+  "module": "./dist/esm/index.js"
+}
