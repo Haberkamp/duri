@@ -23,3 +23,14 @@ it("creates a duration of 1 minute via method", () => {
   // ASSERT
   expect(duration.toSeconds()).toBe(60);
 });
+
+it("creates a duration of 1 hour via method", () => {
+  // ARRANGE
+  const subject = Duration;
+
+  // ACT
+  const duration = subject.hours(1);
+
+  // ASSERT
+  expect(duration.toSeconds()).toBe(3600);
+});
