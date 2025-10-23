@@ -35,10 +35,68 @@ pnpm add duri
 
 ## Usage
 
+### Static Factory Methods
+
 ```ts
 const time = Duration.seconds(5);
-
 const timeInMilliseconds = time.toMilliseconds(); // 5_000 milliseconds
+```
+
+### Natural Language Parsing
+
+```ts
+// Callable factory with string input
+const duration = Duration("5 seconds");
+duration.toSeconds(); // 5
+
+// Compact forms (no space)
+Duration("1s"); // 1 second
+Duration("500ms"); // 500 milliseconds
+Duration("10m"); // 10 minutes
+Duration("2h"); // 2 hours
+
+// Aliases supported (case-insensitive)
+Duration("5 sec");
+Duration("10 min");
+Duration("2 hr");
+Duration("500 milliseconds");
+
+// Decimals and underscores
+Duration("1.5 hours"); // 1.5 hours
+Duration("1_000 seconds"); // 1000 seconds
+
+// Whitespace is flexible
+Duration("  5   seconds  ");
+```
+
+### Numeric Constructor
+
+```ts
+// Direct numeric input (seconds)
+const duration = new Duration(5); // 5 seconds
+```
+
+### Constraints
+
+- **English only**: US spelling (`second`, `seconds`, not `secs`)
+- **Single unit**: Multi-unit strings like `"1 hour 30 minutes"` are not supported
+- **No negatives**: Negative durations will throw `TypeError`
+- **Unit required**: Bare numbers like `"5"` will throw `TypeError`
+- **Supported units**:
+  - Milliseconds: `ms`, `millisecond`, `milliseconds`
+  - Seconds: `s`, `sec`, `second`, `seconds`
+  - Minutes: `m`, `min`, `minute`, `minutes`
+  - Hours: `h`, `hr`, `hour`, `hours`
+
+### Error Handling
+
+```ts
+// These throw TypeError:
+Duration("5"); // No unit
+Duration("-5 seconds"); // Negative
+Duration("1,000 seconds"); // Comma separator
+Duration("5 days"); // Unsupported unit
+Duration("1h30m"); // Multi-unit
 ```
 
 ## Feedback and Contributing
