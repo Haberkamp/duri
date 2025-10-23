@@ -1,4 +1,4 @@
-# @roving-focus/react
+# duri
 
 <!-- ![CI passing](https://github.com/Haberkamp/roving-focus/actions/workflows/ci.yml/badge.svg?event=push&branch=main) -->
 
